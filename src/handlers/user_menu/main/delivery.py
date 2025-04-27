@@ -10,8 +10,9 @@ async def delivery_message(callback: CallbackQuery):
 
     """
 
+    Обработка кнопки Доставка
 
-    :param callback:
+    :param callback: callback
     :return:
     """
 

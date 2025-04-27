@@ -16,9 +16,11 @@ async def make_order_message(callback: CallbackQuery, state: FSMContext):
 
     """
 
+    Обработка кнопки Сделать заказ или За покупками
+    В сообщении помещаем ссылку на канал, где происходит заказ
 
-    :param callback:
-    :param state:
+    :param callback: callback
+    :param state: используем для быстрых данных
     :return:
     """
 

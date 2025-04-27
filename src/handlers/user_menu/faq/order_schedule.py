@@ -11,8 +11,10 @@ async def order_schedule_message(callback: CallbackQuery, state: FSMContext):
 
     """
 
-    :param state:
-    :param callback:
+    Обработка кнопки или вопроса Когда закупка
+
+    :param state: для хранения быстрых данных
+    :param callback: callback
     :return:
     """
 

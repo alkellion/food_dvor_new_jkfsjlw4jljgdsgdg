@@ -10,7 +10,12 @@ def start_main_menu_keyboard() -> InlineKeyboardBuilder:
     Основная клавиатура меню для пользователя
     Все основные разделы находятся здесь
 
-    :return: keyboard
+    - Сделать заказ
+    - Доставка + Оплата заказа
+    - Наши филиалы + О нас
+    - Частые вопросы
+
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     # создаем объект клавиатуры
@@ -38,9 +43,13 @@ def start_main_menu_keyboard() -> InlineKeyboardBuilder:
 def make_order_keyboard(city_link: str) -> InlineKeyboardBuilder:
 
     """
+    Клавиатура меню "Сделать заказ"
 
-    :param city_link:
-    :return: keyboard
+    - За покупками (ссылка на канал)
+    - Назад
+
+    :param city_link: пригласительная ссылка на канал для формирования сообщения
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     keyboard = InlineKeyboardBuilder()
@@ -52,6 +61,16 @@ def make_order_keyboard(city_link: str) -> InlineKeyboardBuilder:
 
 
 def delivery_keyboard() -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура меню "Доставка"
+
+    - Посмотреть пункты выдачи
+    - Назад
+
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Посмотреть пункты выдачи', callback_data='where_receive')
     keyboard.button(text='Назад', callback_data='main_menu')
@@ -60,6 +79,15 @@ def delivery_keyboard() -> InlineKeyboardBuilder:
 
 
 def pay_order_keyboard() -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура меню "Оплата заказа"
+
+    - Назад
+
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Назад', callback_data='main_menu')
     keyboard.adjust(1)
@@ -67,13 +95,34 @@ def pay_order_keyboard() -> InlineKeyboardBuilder:
 
 
 def branches_keyboard() -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура меню "Наши филиалы"
+
+    - Назад
+
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Назад', callback_data='faq')
     keyboard.adjust(1)
+
     return keyboard
 
 
 def about_keyboard(city_link: str) -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура для раздела "О нас"
+
+    - Посмотреть канал
+    - Назад
+
+    :param city_link: пригласительная ссылка на канал
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Посмотреть канал', url=city_link)
     keyboard.button(text='Назад', callback_data='main_menu')
@@ -82,6 +131,13 @@ def about_keyboard(city_link: str) -> InlineKeyboardBuilder:
 
 
 async def city_selection_keyboard() -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура для выбора города.
+    Генерируется клавиатура со всеми городами
+
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
 
     keyboard = InlineKeyboardBuilder()
 
@@ -97,6 +153,19 @@ async def city_selection_keyboard() -> InlineKeyboardBuilder:
 
 
 def faq_keyboard() -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура меню "Частые вопросы"
+
+    - Связаться с менеджером
+    - Когда закупка?
+    - Где смотреть цены?
+    - Можно поштучно?
+    - Где забрать товар?
+    - Назад
+
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
 
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Связаться с менеджером', callback_data='call_manager')
@@ -114,6 +183,17 @@ def faq_keyboard() -> InlineKeyboardBuilder:
 
 
 def call_manager_keyboard(manager_url: str) -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура меню "Связаться с менеджером"
+
+    - Написать менеджеру
+    - Назад
+
+    :param manager_url: ссылка для связи с менеджером
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Написать менеджеру', url=manager_url)
     keyboard.button(text='Назад', callback_data='faq')
@@ -122,6 +202,18 @@ def call_manager_keyboard(manager_url: str) -> InlineKeyboardBuilder:
 
 
 def channel_link_keyboard(channel_link: str, back_callback: str) -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура для меню, где есть ссылка на канал
+
+    - Перейти в канал
+    - Назад
+
+    :param channel_link: ссылка на канал
+    :param back_callback: callback для возврата
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Перейти в канал', url=channel_link)
     keyboard.button(text='Назад', callback_data=back_callback)
@@ -130,6 +222,16 @@ def channel_link_keyboard(channel_link: str, back_callback: str) -> InlineKeyboa
 
 
 def only_back_button(callback: str = 'main_menu') -> InlineKeyboardBuilder:
+
+    """
+    Клавиатура для меню, где только "Назад"
+
+    - Назад
+
+    :param callback: callback для возврата
+    :return: объект InlineKeyboardBuilder с кнопкой "Назад"
+    """
+
     keyboard = InlineKeyboardBuilder()
     keyboard.button(text='Назад', callback_data=callback)
     return keyboard

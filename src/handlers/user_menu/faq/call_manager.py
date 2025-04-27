@@ -11,20 +11,21 @@ async def call_manager_message(callback: CallbackQuery, state: FSMContext):
 
     """
 
-    :param callback:
-    :param state:
+    Обработка кнопки Связаться с менеджером
+
+    :param callback: callback
+    :param state: для хранения быстрых данных
     :return:
     """
 
     # получаем из базы нужные для работы данные, пользователя и города (канала)
-    user = await state.get_value('city')
     city = await state.get_value('city')
 
     # готовим сообщения и вставялем нужные данные
     message_text = ''.join((
         '<b>Связаться с менеджером</b> \n\n',
         f'За каждым городом следит свой <a href="{city.manager}">менеджер</a> \n',
-        f'Написать менеджеру города {user.city}?'
+        f'Написать менеджеру города {city.city}?'
     ))
 
     # пулим сообщение

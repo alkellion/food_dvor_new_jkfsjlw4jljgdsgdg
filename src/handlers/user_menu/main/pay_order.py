@@ -10,8 +10,9 @@ async def pay_order_message(callback: CallbackQuery):
 
     """
 
+    Обработка кнопки Оплатиьт заказ
 
-    :param callback:
+    :param callback: callback
     :return:
     """
 

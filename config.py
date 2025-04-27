@@ -5,6 +5,19 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
 
+    """
+    Класс для настройки конфигурации бота и базы данных.
+    Данные берем из .env
+
+    Параметры:
+    - TEST_BOT_TOKEN: Токен бота для
+    - ADMIN_ID: Админ пока только я
+    - INIT_DB: Флаг для инициализации бд
+    - DB_HOST, DB_PORT, DB_USER, DB_PASS, DB_NAME: Параметры подключения к базе данных.
+
+    :return: Объект конфигурации с настройками бота и базы данных.
+    """
+
     TEST_BOT_TOKEN: str
     ADMIN_ID: int
 

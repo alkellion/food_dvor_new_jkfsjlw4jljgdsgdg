@@ -16,9 +16,15 @@ async def start_command_link(message: Message, command: CommandObject, state: FS
 
     """
 
-    :param state:
-    :param message:
-    :param command:
+    Обрабатываем команду старт, если это пригласительная ссылка.
+    Получаем аргумент из ссылки, это id.
+    Получаем из бд объект ссылки.
+    Записываем в базу пользователя, если его нет, вносим данные.
+    К ссылке приписываем его, что он вступил по ней.
+
+    :param state: Для хранения быстрых данных о юзере
+    :param message: объект сообщения
+    :param command: объект команды
     :return:
     """
 

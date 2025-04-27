@@ -14,10 +14,14 @@ from logs.logger_config import logger
 
 @links_menu_router.callback_query(F.data == 'create_link')
 async def create_link(callback: CallbackQuery, state: FSMContext):
+
     """
 
-    :param callback:
-    :param state:
+    Обработка кнопки Создать ссылку.
+    Собираются все данные, вносятся в бд и возвращают готовую пригласительную ссылку
+
+    :param callback: callback
+    :param state: храним данные для создания ссылки
     :return:
     """
 

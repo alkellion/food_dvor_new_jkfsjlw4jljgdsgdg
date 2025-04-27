@@ -10,7 +10,9 @@ async def user_main_menu(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    Обработка главного меню, либо кнопки Назад через колбек, а не команду
+
+    :param callback: callback
     :return:
     """
 

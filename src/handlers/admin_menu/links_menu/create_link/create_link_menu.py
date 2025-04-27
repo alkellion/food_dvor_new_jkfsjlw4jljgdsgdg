@@ -18,8 +18,13 @@ async def create_link_menu(callback: CallbackQuery, state: FSMContext):
 
     """
 
-    :param callback:
-    :param state:
+    Обработка кнопки Создать новую ссылку
+    Или же вход в меню создания ссылок
+
+    Если ссылку не создали, но вносили значения, они подтянутся из state
+
+    :param callback: callback
+    :param state: здесь храним значения для создания ссылки
     :return:
     """
 

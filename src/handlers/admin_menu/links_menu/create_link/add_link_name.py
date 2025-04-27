@@ -14,8 +14,13 @@ async def add_link_name_entering(callback: CallbackQuery, state: FSMContext):
 
     """
 
-    :param callback:
-    :param state:
+    Обработка кнопки "Изменить имя" (ссылки).
+    Открывается меню и переключается состояние для приема текста от админа.
+    Можно вписать любое имя, главное чтобы оно было уникальным
+
+
+    :param callback: callback
+    :param state: для переключения состояния и сохранения объекта callback
     :return:
     """
 
@@ -42,8 +47,10 @@ async def add_link_name_set(message: Message, state: FSMContext):
 
     """
 
-    :param message:
-    :param state:
+    Обработка отправленного сообщения с названием ссылки от админа
+
+    :param message: название ссылки, присланное админом
+    :param state: для хранения параметров для создания ссылки
     :return:
     """
 

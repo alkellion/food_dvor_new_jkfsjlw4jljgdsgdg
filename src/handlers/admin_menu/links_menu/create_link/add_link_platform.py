@@ -15,7 +15,17 @@ from logs.logger_config import logger
 
 
 @links_menu_router.callback_query(F.data == 'add_link_platform')
-async def insert_platform(callback: CallbackQuery, state: FSMContext):
+async def insert_platform(callback: CallbackQuery):
+
+    """
+
+    Обработка кнопки Добавить платформу.
+    Попадаем в меню с выбором платформы в виде кнопок, достаются из бд
+
+    :param callback: callback
+    :return:
+    """
+
     # Редактируем сообщение, показываем имя ссылки
     message_text = ''.join(
         (
@@ -32,6 +42,15 @@ async def insert_platform(callback: CallbackQuery, state: FSMContext):
 @links_menu_router.callback_query(F.data.startswith('platform_'))
 async def insert_platform_callback(callback: CallbackQuery, state: FSMContext):
 
+    """
+    Обработка выбора кнопки платформы для ссылки.
+    Сохраняется значение в state
+
+    :param callback: callback
+    :param state: для записи значений для создания ссылки
+    :return:
+    """
+
     async with AsyncSessionLocal() as session:
         platform = await get_platform(session, int(callback.data.split('platform_')[1]))
 
@@ -40,3 +59,4 @@ async def insert_platform_callback(callback: CallbackQuery, state: FSMContext):
     })
 
     await create_link_menu(callback, state)
+    return

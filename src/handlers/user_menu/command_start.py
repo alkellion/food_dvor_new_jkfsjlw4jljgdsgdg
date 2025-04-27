@@ -14,10 +14,16 @@ from logs.logger_config import logger
 
 @user_menu_router.message(CommandStart())
 async def start_command(message: Message, state: FSMContext):
+
     """
 
-    :param message:
-    :param state:
+    Обработка просто команды старт, без ссылки.
+    Записываем в базу пользователя, если его нет, вносим данные.
+    Если уже есть, то просто отправляем стартовое сообщение
+
+
+    :param message: Объект сообщения
+    :param state: Для хранения быстрых данных
     :return:
 
     """

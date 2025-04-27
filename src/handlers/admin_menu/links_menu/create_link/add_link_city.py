@@ -17,7 +17,10 @@ async def add_link_city_entering(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    Обработка кнопки "Изменить город" (ссылки)
+    Переход в меню с выбором города в виде кнопок
+
+    :param callback: callback
     :return:
     """
 
@@ -37,7 +40,15 @@ async def add_link_city_entering(callback: CallbackQuery):
 @links_menu_router.callback_query(F.data.startswith('city_'))
 async def add_link_city_set(callback: CallbackQuery, state: FSMContext):
 
-    # city = database.get_city(int(callback.data.split('city_')[1]))
+    """
+
+    Обработка выбора города из кнопок.
+    Внесение значений в state для создания ссылки
+
+    :param callback: callback
+    :param state: для записи значений для создания ссылки
+    :return:
+    """
 
     async with AsyncSessionLocal() as session:
         city = await get_city_by_chat_id(session, int(callback.data.split('city_')[1]))

@@ -6,8 +6,14 @@ from database.engine import AsyncSessionLocal
 async def links_menu_keyboards():
 
     """
+    Клавиатура меню ссылок
+    Выравнивание по 1 кнопке
 
-    :return:
+    - Создать новую ссылку
+    - Статистика ссылок
+    - Назад
+
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     keyboard = InlineKeyboardBuilder()
@@ -22,6 +28,19 @@ async def links_menu_keyboards():
 
 
 async def create_link_menu_keyboard():
+
+    """
+    Клавиатура меню Создания ссылки
+
+    - Изменить имя
+    - Изменить город
+    - Изменить платформу
+    - Создать ссылку
+    - Назад
+
+    :return: объект InlineKeyboardBuilder с кнопками
+    """
+
     # создаем клавиатуру с кнопками
     keyboard = InlineKeyboardBuilder()
 
@@ -39,9 +58,11 @@ async def create_link_menu_keyboard():
 async def links_stat_menu_keyboard(session):
 
     """
+    Клавиатура с выбором города для получения статистики ссылок по нему
+    Из бд достаются все города и создаются кнопки с callback_data = 'stat_city_{city_name}'
 
-    :param session:
-    :return:
+    :param session: сессия для работы с бд
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     # достаем города из базы
@@ -64,9 +85,11 @@ async def links_stat_menu_keyboard(session):
 async def add_link_city_keyboard(session):
 
     """
+    Клавиатура с добавлением города к ссылке, либо выход назад.
+    Создается клавиатура выбора города для добавления к отслеживающей ссылке
 
-    :param session:
-    :return:
+    :param session: сессия для работы с бд
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     # клавиатура если нужно изменить имя ссылки или выйти
@@ -89,9 +112,12 @@ async def add_link_city_keyboard(session):
 async def add_link_platform_keybaord(session):
 
     """
+    Клавиатура с добавлением платформы к отслеживающей ссылке.
+    Из бд достаются все платформы и генерируется клавиатура
 
-    :param session:
-    :return:
+
+    :param session: сессия для работы с бд
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     # клавиатура если нужно изменить имя ссылки или выйти

@@ -10,7 +10,11 @@ async def where_receive_message(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    Обработка кнопки или вопроса Где забрать товар?
+    Здесь на первое время просто список всех ПВЗ
+    В дальнейшем планировалось по городу выдавать и более красиво и информативно
+
+    :param callback: callback
     :return:
     """
 

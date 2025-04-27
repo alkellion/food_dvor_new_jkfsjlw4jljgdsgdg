@@ -1,10 +1,6 @@
 from aiogram import F
 from aiogram.types import CallbackQuery
 from aiogram.utils.keyboard import InlineKeyboardBuilder
-from aiogram.fsm.context import FSMContext
-from src.states.create_link_states import CreateLinkMenuStates
-
-from config import bot
 
 from src.handlers.admin_menu.links_menu.links_menu_router import links_menu_router
 
@@ -13,16 +9,15 @@ from src.keyboards.links_menu_keyboards import links_stat_menu_keyboard
 from database.engine import AsyncSessionLocal
 from database.crud import get_city_by_channel_id, get_city_links_stat
 
-from logs.logger_config import logger
-
 
 @links_menu_router.callback_query(F.data == 'links_stat')
-async def links_stat_menu(callback: CallbackQuery, state: FSMContext):
+async def links_stat_menu(callback: CallbackQuery):
 
     """
 
-    :param callback:
-    :param state:
+    Обработка кнопки Статистика ссылок
+
+    :param callback: callback
     :return:
     """
 
@@ -40,7 +35,9 @@ async def get_link_stat(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    Обработка кнопки города для получения статистики всех его ссылок
+
+    :param callback: callback
     :return:
     """
 
@@ -82,4 +79,3 @@ async def get_link_stat(callback: CallbackQuery):
 
     # редактируем сообщение
     await callback.message.edit_text(message_text, reply_markup=keyboard.as_markup())
-

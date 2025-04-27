@@ -10,7 +10,9 @@ async def faq_message(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    Обработка кнопки Часто задаваемые вопросы
+
+    :param callback: callback
     :return:
     """
 

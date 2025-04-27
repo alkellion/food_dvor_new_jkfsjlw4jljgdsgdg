@@ -13,11 +13,14 @@ async def where_price_message(callback: CallbackQuery, state: FSMContext):
 
     """
 
-    :param state:
-    :param callback:
+    Обработка кнопки или вопроса Где смотреть цены
+
+    :param state: для хранения быстрых данных
+    :param callback: callback
     :return:
     """
 
+    # достаем данные из состояния
     city = await state.get_value('city')
 
     message_text = ''.join((

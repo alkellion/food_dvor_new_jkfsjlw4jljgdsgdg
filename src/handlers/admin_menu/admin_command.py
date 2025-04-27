@@ -12,7 +12,11 @@ async def admin_start_command(message: Message):
 
     """
 
-    :param message:
+    Обработка команды /admin
+    Хотел реализовать через /start по id пользователя
+    Но оставил пока так, т.к. прототип
+
+    :param message: message
     :return:
     """
 
@@ -29,7 +33,9 @@ async def admin_menu(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    То же самое, что и обработка команды, только через callback
+
+    :param callback: callback
     :return:
     """
 

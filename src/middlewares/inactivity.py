@@ -10,6 +10,18 @@ import asyncio
 
 class InactivityMiddleware(BaseMiddleware):
     def __init__(self, timeout: int = 300):
+
+        """
+        Миддлварь для отслеживания активности пользователя.
+
+        Этот миддлварь отслеживает, когда пользователь был активен в чат-боте,
+        если с момента последней активности прошло больше заданного времени,
+        то очищает состояние пользователя (FSMContext).
+
+        :param timeout: Время (в секундах), по истечении которого пользователь будет
+                        считаться неактивным. По умолчанию — 300 секунд (5 минут).
+        """
+
         self.timeout = timeout
         self.last_activity: Dict[int, datetime] = {}
         self.tasks: Dict[int, asyncio.Task] = {}  # ключ - user_id, значение - asyncio.Task

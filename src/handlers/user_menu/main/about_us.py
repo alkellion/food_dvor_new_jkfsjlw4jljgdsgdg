@@ -11,13 +11,15 @@ async def about_message(callback: CallbackQuery, state: FSMContext):
 
     """
 
+    Обработка кнопки "о нас"
+    Достаем из state данные о юзере, чтобы вставлять в сообщение ссылку города
 
-    :param callback:
-    :param state:
+    :param callback: callback, который принимаем
+    :param state: для хранения быстрых данных
     :return:
     """
 
-    user_data = await state.get_value('user')
+    # достаем данные из state
     city = await state.get_value('city')
 
     message_text = ''.join((

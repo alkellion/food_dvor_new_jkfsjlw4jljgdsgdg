@@ -6,8 +6,9 @@ from database.engine import AsyncSessionLocal
 async def admin_menu_keyboard():
 
     """
+    Клавиатура админ меню, пока ничего нет
 
-    :return:
+    :return: объект InlineKeyboardBuilder с кнопками
     """
 
     keyboard = InlineKeyboardBuilder()

@@ -11,13 +11,17 @@ async def min_weigh_message(callback: CallbackQuery, state: FSMContext):
 
     """
 
-    :param state:
-    :param callback:
+    Обработка кнопки или вопроса Можно поштучно?
+
+    :param state: Для хранения быстрых данных
+    :param callback: callback
     :return:
     """
 
+    # достаем данные из состояния
     city = await state.get_value('city')
 
+    # вставляем ссылку канала
     message_text = ''.join((
         '<b>Можно ли купить товар поштучно?</b> \n\n',
         'Жаль, но так не получится :( \n',

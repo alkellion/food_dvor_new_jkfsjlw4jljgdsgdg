@@ -15,7 +15,10 @@ async def link_menu(callback: CallbackQuery):
 
     """
 
-    :param callback:
+    Обработка кнопки Меню ссылок.
+    Предполагалось, что работы со ссылками будет много
+
+    :param callback: callback
     :return:
     """
 

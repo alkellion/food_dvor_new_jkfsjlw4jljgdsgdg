@@ -19,4 +19,3 @@ from src.handlers.user_menu.faq.call_manager import *
 # импорт команд старт и смены города
 from src.handlers.user_menu.command_start import *
 from src.handlers.user_menu.command_start_link import *
-from src.handlers.user_menu.change_city import *
